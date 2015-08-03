@@ -20,6 +20,7 @@ Plugin 'terryma/vim-expand-region'
 Plugin 'scrooloose/nerdtree'
 Plugin 'ggreer/the_silver_searcher'
 Plugin 'rking/ag.vim'
+Plugin 'mattn/emmet-vim'
 
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
@@ -28,6 +29,7 @@ Plugin 'rking/ag.vim'
 call vundle#end()            " Required by Vundle
 filetype plugin indent on    " Required by Vundle
 
+"" VIM CONFIGURATION
 syntax enable                   " syntax highlighting
 set encoding=utf-8
 set showcmd                     " display incomplete commands
@@ -36,6 +38,8 @@ set noswapfile                  " Disable swapfile from creating
 set wildmenu                    " visual autocomplete for command menu
 set cursorline                  " horizontal highlighting
 set noswapfile                  " Disable swapfile from creating
+set timeoutlen=1000             " used for mapping delays
+set ttimeoutlen=0               " used for keycode delays
 filetype plugin indent on       " load file type plugins + indentation
 
 "" THE SILVER SEARCHER
@@ -59,6 +63,10 @@ let g:ag_working_path_mode="r"
 "" THEME
 set background=dark             "dark background
 colorscheme solarized           "set colorscheme to solarized
+
+"" EMMET MAPPING
+" tab for Emmet completion
+imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
 
 "" WHITESPACE
 set nowrap                      " don't wrap lines
