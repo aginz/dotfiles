@@ -30,6 +30,7 @@ call vundle#end()            " Required by Vundle
 filetype plugin indent on    " Required by Vundle
 
 "" VIM CONFIGURATION
+let mapleader = "\<Space>"      " Map leader key to space bar
 syntax enable                   " syntax highlighting
 set encoding=utf-8
 set showcmd                     " display incomplete commands
@@ -86,7 +87,6 @@ set smartcase                   " ... unless they contain at least one capital l
 "" MAPPINGS
 inoremap jk <ESC>           " Map escape key to jk in insert mode
 vnoremap jk <ESC>           " Map escape key to jk in visual mode
-let mapleader = "\<Space>"  " Map leader key to space bar
 nnoremap <CR> G             " 12<Enter> goes to line 12 / Enter goes to end of file
 nnoremap <BS> gg            " Backspace goes to beginning of file
 nnoremap <Leader>w :w<CR>   " Type <Space>w to save file
@@ -138,3 +138,11 @@ nmap <Leader>vm :tabedit $MYVIMRC<CR>
 
 " Source VIMRC with <SPACE> so
 nmap <Leader>so :source $MYVIMRC<CR>
+
+"" Search and Replace
+" Search with /something
+" Hit 'cs' to replace first match, then <ESC>
+" 'n.n.n.n.' to review then replace
+vnoremap <silent> s //e<C-r>=&selection=='exclusive'?'+1':''<CR><CR>
+      \:<C-u>call histdel('search',-1)<Bar>let @/=histget('search',-1)<CR>gv
+omap s :normal vs<CR>
