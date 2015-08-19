@@ -98,9 +98,11 @@ nnoremap <leader>m :Emodel<CR>
 nnoremap <leader>c :Econtroller<CR>
 " Drop in Pry to debug. <Space> bp
 nmap <leader>bp obinding.pry<esc>^
-" zoom a vim pane, <C-w>= to re-balance
+" Zoom a vim pane, <C-w>= to re-balance
 nnoremap <leader>- :wincmd _<cr>:wincmd \|<cr>
 nnoremap <leader>= :wincmd =<cr>
+" Breakout into a new tab
+nnoremap <Leader>bt <C-w>T
 
 " Enable copying to clipboard using `CTRL + c`
 map <C-c> y:e ~/clipsongzboard<CR>P:w !pbcopy<CR><CR>:bdelete!<CR>
