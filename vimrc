@@ -85,18 +85,22 @@ set ignorecase                  " searches are case insensitive...
 set smartcase                   " ... unless they contain at least one capital letter
 
 "" MAPPINGS
-inoremap jk <ESC>           " Map escape key to jk in insert mode
-vnoremap jk <ESC>           " Map escape key to jk in visual mode
-nnoremap <CR> G             " 12<Enter> goes to line 12 / Enter goes to end of file
-nnoremap <BS> gg            " Backspace goes to beginning of file
-nnoremap <Leader>w :w<CR>   " Type <Space>w to save file
-nmap <Leader><Leader> V     " Enter Visual mode with <Space><Space>
-
-" Unmap arrow keys
-noremap <Up> <nop>
-noremap <Down> <nop>
-noremap <Left> <nop>
-noremap <Right> <nop>
+" Map jk to escape
+inoremap jk <ESC>
+vnoremap jk <ESC>
+" Type <Space>w to save file
+nnoremap <Leader>w :w<CR>
+" Enter visual mode with space space
+nmap <Leader><Leader> V
+" Go to related mdel with <Space>m
+nnoremap <leader>m :Emodel<CR>
+" Go to related controller with <Space>c
+nnoremap <leader>c :Econtroller<CR>
+" Drop in Pry to debug. <Space> bp
+nmap <leader>bp obinding.pry<esc>^
+" zoom a vim pane, <C-w>= to re-balance
+nnoremap <leader>- :wincmd _<cr>:wincmd \|<cr>
+nnoremap <leader>= :wincmd =<cr>
 
 " Enable copying to clipboard using `CTRL + c`
 map <C-c> y:e ~/clipsongzboard<CR>P:w !pbcopy<CR><CR>:bdelete!<CR>
