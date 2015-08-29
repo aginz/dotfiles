@@ -10,17 +10,19 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
 " My bundles
-Plugin 'tpope/vim-rails'
-Plugin 'tComment'
-Plugin 'kien/ctrlp.vim'
-Plugin 'bling/vim-airline'
 Plugin 'airblade/vim-gitgutter'
-Plugin 'thoughtbot/vim-rspec'
-Plugin 'terryma/vim-expand-region'
-Plugin 'scrooloose/nerdtree'
+Plugin 'bling/vim-airline'
 Plugin 'ggreer/the_silver_searcher'
-Plugin 'rking/ag.vim'
+Plugin 'godlygeek/tabular'
+Plugin 'jeffkreeftmeijer/vim-numbertoggle'
+Plugin 'kien/ctrlp.vim'
 Plugin 'mattn/emmet-vim'
+Plugin 'rking/ag.vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'tComment'
+Plugin 'terryma/vim-expand-region'
+Plugin 'thoughtbot/vim-rspec'
+Plugin 'tpope/vim-rails'
 
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
@@ -33,12 +35,16 @@ filetype plugin indent on    " Required by Vundle
 let mapleader = "\<Space>"      " Map leader key to space bar
 syntax enable                   " syntax highlighting
 set encoding=utf-8
-set showcmd                     " display incomplete commands
+set laststatus=2                " Always display the status line
 set number                      " show line numbers
+set noshowmode                  " Remove duplicate status
 set noswapfile                  " Disable swapfile from creating
 set wildmenu                    " visual autocomplete for command menu
 set cursorline                  " horizontal highlighting
 set noswapfile                  " Disable swapfile from creating
+set relativenumber              " show relative line numbers
+set showcmd                     " display incomplete commands
+set si                          " smart indent
 set timeoutlen=1000             " used for mapping delays
 set ttimeoutlen=0               " used for keycode delays
 filetype plugin indent on       " load file type plugins + indentation
@@ -55,9 +61,6 @@ if executable('ag')
   let g:ctrlp_use_caching = 0
 endif
 
-" bind K to grep word under cursor
-nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
-
 " Ag.vim will always search from project root
 let g:ag_working_path_mode="r"
 
@@ -67,7 +70,7 @@ colorscheme solarized           "set colorscheme to solarized
 
 "" EMMET MAPPING
 " tab for Emmet completion
-imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
+" imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
 
 "" WHITESPACE
 set nowrap                      " don't wrap lines
@@ -103,6 +106,8 @@ nnoremap <leader>- :wincmd _<cr>:wincmd \|<cr>
 nnoremap <leader>= :wincmd =<cr>
 " Breakout into a new tab
 nnoremap <Leader>bt <C-w>T
+" Open CTRL P
+nnoremap <Leader>o :CtrlP o<CR>
 
 " Enable copying to clipboard using `CTRL + c`
 map <C-c> y:e ~/clipsongzboard<CR>P:w !pbcopy<CR><CR>:bdelete!<CR>
@@ -113,8 +118,8 @@ vmap v <Plug>(expand_region_expand)
 vmap <C-v> <Plug>(expand_region_shrink)
 
 " NERDTREE MAPPINGS
-" Toggle nerd tree with <SPACE> n
-map <Leader>n :NERDTreeToggle<CR>
+" Toggle nerd tree with <SPACE> nt
+map <Leader>nt :NERDTreeToggle<CR>
 
 " RSpec.vim MAPPINGS
 map <Leader>t :call RunCurrentSpecFile()<CR>
