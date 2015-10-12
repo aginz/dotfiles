@@ -17,12 +17,16 @@ Plugin 'godlygeek/tabular'
 Plugin 'jeffkreeftmeijer/vim-numbertoggle'
 Plugin 'kien/ctrlp.vim'
 Plugin 'mattn/emmet-vim'
+Plugin 'rizzatti/dash.vim'
 Plugin 'rking/ag.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'tComment'
 Plugin 'terryma/vim-expand-region'
 Plugin 'thoughtbot/vim-rspec'
 Plugin 'tpope/vim-rails'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-unimpaired'
 
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
@@ -40,8 +44,8 @@ set number                      " show line numbers
 set noshowmode                  " Remove duplicate status
 set noswapfile                  " Disable swapfile from creating
 set wildmenu                    " visual autocomplete for command menu
+set wildmode="list:longest"
 set cursorline                  " horizontal highlighting
-set noswapfile                  " Disable swapfile from creating
 set relativenumber              " show relative line numbers
 set showcmd                     " display incomplete commands
 set si                          " smart indent
@@ -64,9 +68,29 @@ endif
 " Ag.vim will always search from project root
 let g:ag_working_path_mode="r"
 
+let g:ctrlp_match_window = 'max:20'
+
 "" THEME
-set background=dark             "dark background
-colorscheme solarized           "set colorscheme to solarized
+let g:solarized_termcolors=16
+let g:solarized_termtrans = 1      "make solarized work with tmux
+let g:airline_theme="solarized"    "vim airline theme
+let hour = strftime("%H")
+if 6 <= hour && hour < 18
+  set background=light
+else
+  set background=dark
+endif
+colorscheme solarized
+
+" Manually toggle solarized background with leader bg
+function! BgToggleSol()
+  if &background == "light"
+    execute ":set background=dark"
+  else
+    execute ":set background=light"
+  endif
+endfunction
+nnoremap <leader>bg :call BgToggleSol()<cr>
 
 "" EMMET MAPPING
 " tab for Emmet completion
@@ -74,7 +98,7 @@ colorscheme solarized           "set colorscheme to solarized
 
 "" WHITESPACE
 set nowrap                      " don't wrap lines
-set tabstop=2 shiftwidth=2      " a tab is two spaces (or set this to 4)
+set tabstop=2 softtabstop=2 shiftwidth=2      " a tab is two spaces (or set this to 4)
 set expandtab                   " use spaces, not tabs (optional)
 set backspace=indent,eol,start  " backspace through everything in insert mode
 set list listchars=tab:»·,trail:·     " Display extra whitespace
@@ -86,6 +110,7 @@ set hlsearch                    " highlight matches
 set incsearch                   " incremental searching
 set ignorecase                  " searches are case insensitive...
 set smartcase                   " ... unless they contain at least one capital letter
+set scrolloff=3
 
 "" MAPPINGS
 " Map jk to escape
@@ -108,6 +133,8 @@ nnoremap <leader>= :wincmd =<cr>
 nnoremap <Leader>bt <C-w>T
 " Open CTRL P
 nnoremap <Leader>o :CtrlP o<CR>
+" Change panes
+nnoremap <Leader>e <C-w>w
 
 " Enable copying to clipboard using `CTRL + c`
 map <C-c> y:e ~/clipsongzboard<CR>P:w !pbcopy<CR><CR>:bdelete!<CR>
@@ -139,10 +166,10 @@ vmap <Leader>P "+P
 vmap <Leader>b :<C-U>!git blame <C-R>=expand("%:p") <CR> \| sed -n <C-R>=line("'<") <CR>,<C-R>=line("'>") <CR>p <CR>
 
 " Navigate panes with <CTRL> + h,j,k,l
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
+" nnoremap <C-h> <C-w>h
+" nnoremap <C-j> <C-w>j
+" nnoremap <C-k> <C-w>k
+" nnoremap <C-l> <C-w>l
 
 " Open VIMRC file with <SPACE> vm
 nmap <Leader>vm :tabedit $MYVIMRC<CR>
@@ -150,10 +177,8 @@ nmap <Leader>vm :tabedit $MYVIMRC<CR>
 " Source VIMRC with <SPACE> so
 nmap <Leader>so :source $MYVIMRC<CR>
 
-"" Search and Replace
-" Search with /something
-" Hit 'cs' to replace first match, then <ESC>
-" 'n.n.n.n.' to review then replace
-vnoremap <silent> s //e<C-r>=&selection=='exclusive'?'+1':''<CR><CR>
-      \:<C-u>call histdel('search',-1)<Bar>let @/=histget('search',-1)<CR>gv
-omap s :normal vs<CR>
+" Change cursor shape between insert and normal mode in iTerm2.app
+if $TERM_PROGRAM =~ "iTerm"
+  let &t_SI = "\<Esc>]50;CursorShape=1\x7" " Vertical bar in insert mode
+  let &t_EI = "\<Esc>]50;CursorShape=0\x7" " Block in normal mode
+endif
