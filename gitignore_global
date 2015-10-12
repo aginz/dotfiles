@@ -1,2 +1,7 @@
 /* GIT IGNORE FILES */
 *.sass-cache
+*.csv
+.DS_Store
+.ruby-gemset
+.ruby-version
+.idea
