@@ -75,6 +75,8 @@ let g:solarized_termcolors=16
 let g:solarized_termtrans = 1      "make solarized work with tmux
 let g:airline_theme="solarized"    "vim airline theme
 let hour = strftime("%H")
+
+" Change solarized theme at 6PM
 if 6 <= hour && hour < 18
   set background=light
 else
@@ -177,8 +179,11 @@ nmap <Leader>vm :tabedit $MYVIMRC<CR>
 " Source VIMRC with <SPACE> so
 nmap <Leader>so :source $MYVIMRC<CR>
 
-" Change cursor shape between insert and normal mode in iTerm2.app
-if $TERM_PROGRAM =~ "iTerm"
-  let &t_SI = "\<Esc>]50;CursorShape=1\x7" " Vertical bar in insert mode
-  let &t_EI = "\<Esc>]50;CursorShape=0\x7" " Block in normal mode
+" Make cursor vertical line in insert mode
+if exists('$TMUX')
+  let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
+  let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
+else
+  let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+  let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 endif
