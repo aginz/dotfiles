@@ -12,6 +12,8 @@ Plugin 'gmarik/Vundle.vim'
 " My bundles
 Plugin 'airblade/vim-gitgutter'
 Plugin 'bling/vim-airline'
+Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'christoomey/vim-tmux-runner'
 Plugin 'ggreer/the_silver_searcher'
 Plugin 'godlygeek/tabular'
 Plugin 'jeffkreeftmeijer/vim-numbertoggle'
@@ -67,7 +69,9 @@ endif
 
 " Ag.vim will always search from project root
 let g:ag_working_path_mode="r"
-
+" Vim Rspec calls tmux runner
+let g:rspec_command = "call VtrSendCommand('rspec {spec}')"
+" Show 20 results in CtrlP
 let g:ctrlp_match_window = 'max:20'
 
 "" THEME
@@ -93,10 +97,6 @@ function! BgToggleSol()
   endif
 endfunction
 nnoremap <leader>bg :call BgToggleSol()<cr>
-
-"" EMMET MAPPING
-" tab for Emmet completion
-" imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
 
 "" WHITESPACE
 set nowrap                      " don't wrap lines
@@ -137,9 +137,12 @@ nnoremap <Leader>bt <C-w>T
 nnoremap <Leader>o :CtrlP o<CR>
 " Change panes
 nnoremap <Leader>e <C-w>w
+" automatically rebalance windows on vim resize
+autocmd VimResized * :wincmd =
 
-" Enable copying to clipboard using `CTRL + c`
-map <C-c> y:e ~/clipsongzboard<CR>P:w !pbcopy<CR><CR>:bdelete!<CR>
+" TMUX RUNNER
+nnoremap <leader>irb :VtrOpenRunner {'orientation': 'h', 'percentage': 50, 'cmd': 'irb'}<cr>
+nnoremap <leader>fr :VtrFocusRunner
 
 " VIM-EXPAND REGION MAPPINGS
 " Press v to enter visual mode, vv to select word, vvv to select line, etc.
