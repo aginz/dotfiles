@@ -145,6 +145,7 @@ nnoremap <leader>irb :VtrOpenRunner {'orientation': 'h', 'percentage': 50, 'cmd'
 nnoremap <leader>pry :VtrOpenRunner {'orientation': 'h', 'percentage': 50, 'cmd': 'pry'}<cr>
 nnoremap <leader>fr :VtrFocusRunner<cr>
 nnoremap <leader>kr :VtrKillRunner<cr>
+nnoremap <leader>va :VtrAttachToPane<cr>
 
 " VIM-EXPAND REGION MAPPINGS
 " Press v to enter visual mode, vv to select word, vvv to select line, etc.
