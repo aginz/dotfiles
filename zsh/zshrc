@@ -1,0 +1,6 @@
+source ~/.async.zsh
+source ~/.pure.zsh
+source ~/.profile
+source ~/.bash_profile
+
+fpath=( "$HOME/.zfunctions" $fpath )
