@@ -31,10 +31,9 @@ alias gtree="git log --graph --decorate --oneline --all"
 alias gka="gitk --all &"
 alias gd="git diff"
 alias gb="git branch"
-alias gl="git log"
+alias gl="git log --decorate --oneline"
 alias gld='git log --pretty=format:"%h %ad %s" --date=short --all'
-alias gs="git stash "
-alias gst="git stash save -u"
+alias gst="git stash"
 alias gi="git init"
 
 #Bash Alias
