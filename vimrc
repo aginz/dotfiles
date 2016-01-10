@@ -18,13 +18,13 @@ Plugin 'ggreer/the_silver_searcher'
 Plugin 'godlygeek/tabular'
 Plugin 'jeffkreeftmeijer/vim-numbertoggle'
 Plugin 'kien/ctrlp.vim'
-Plugin 'mattn/emmet-vim'
 Plugin 'rizzatti/dash.vim'
 Plugin 'rking/ag.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'tComment'
 Plugin 'terryma/vim-expand-region'
 Plugin 'thoughtbot/vim-rspec'
+Plugin 'tpope/vim-dispatch'
 Plugin 'tpope/vim-rails'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-fugitive'
@@ -48,7 +48,9 @@ set noswapfile                  " Disable swapfile from creating
 set wildmenu                    " visual autocomplete for command menu
 set wildmode="list:longest"
 set cursorline                  " horizontal highlighting
+set cursorcolumn                " vertical highlighting
 set relativenumber              " show relative line numbers
+set shell=/bin/sh               " Load correct ruby
 set showcmd                     " display incomplete commands
 set si                          " smart indent
 set timeoutlen=1000             " used for mapping delays
@@ -69,23 +71,18 @@ endif
 
 " Ag.vim will always search from project root
 let g:ag_working_path_mode="r"
-" Vim Rspec calls tmux runner
-let g:rspec_command = "call VtrSendCommand('rspec {spec}')"
 " Show 20 results in CtrlP
 let g:ctrlp_match_window = 'max:20'
+
+" Use Rspec.vim with Dispatch
+let g:rspec_command = "Dispatch rspec {spec}"
 
 "" THEME
 let g:solarized_termcolors=16
 let g:solarized_termtrans = 1      "make solarized work with tmux
 let g:airline_theme="solarized"    "vim airline theme
 let hour = strftime("%H")
-
-" Change solarized theme at 6PM
-if 6 <= hour && hour < 18
-  set background=light
-else
-  set background=dark
-endif
+set background=dark
 colorscheme solarized
 
 " Manually toggle solarized background with leader bg
