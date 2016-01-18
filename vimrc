@@ -77,13 +77,21 @@ let g:ctrlp_match_window = 'max:20'
 " Use Rspec.vim with Dispatch
 let g:rspec_command = "Dispatch rspec {spec}"
 
-"" THEME
-let g:solarized_termcolors=16
-let g:solarized_termtrans = 1      "make solarized work with tmux
-let g:airline_theme="solarized"    "vim airline theme
-let hour = strftime("%H")
+""""""""""""""""
+"THEME
+""""""""""""""""
 set background=dark
-colorscheme solarized
+
+"" grb256
+:set t_Co=256 " 256 colors
+:set background=dark
+:color grb256
+
+"" Solarized
+" let g:solarized_termcolors=16
+" let g:solarized_termtrans = 1      "make solarized work with tmux
+" let g:airline_theme="solarized"    "vim airline theme
+" colorscheme solarized
 
 " Manually toggle solarized background with leader bg
 function! BgToggleSol()
