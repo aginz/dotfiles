@@ -29,6 +29,7 @@ Plugin 'tpope/vim-rails'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-unimpaired'
+Plugin 'unblevable/quick-scope'
 
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
@@ -48,8 +49,7 @@ set noswapfile                  " Disable swapfile from creating
 set wildmenu                    " visual autocomplete for command menu
 set wildmode="list:longest"
 set cursorline                  " horizontal highlighting
-set cursorcolumn                " vertical highlighting
-set relativenumber              " show relative line numbers
+" set cursorcolumn                " vertical highlighting
 set shell=/bin/sh               " Load correct ruby
 set showcmd                     " display incomplete commands
 set si                          " smart indent
@@ -143,6 +143,8 @@ nnoremap <leader>pry :VtrOpenRunner {'orientation': 'h', 'percentage': 50, 'cmd'
 nnoremap <leader>fr :VtrFocusRunner<cr>
 nnoremap <leader>kr :VtrKillRunner<cr>
 nnoremap <leader>va :VtrAttachToPane<cr>
+nmap <C-f> :VtrSendLinesToRunner<cr>
+vmap <C-f> <Esc>:VtrSendLinesToRunner<cr>
 
 " VIM-EXPAND REGION MAPPINGS
 " Press v to enter visual mode, vv to select word, vvv to select line, etc.
@@ -181,6 +183,9 @@ nmap <Leader>vm :tabedit $MYVIMRC<CR>
 
 " Source VIMRC with <SPACE> so
 nmap <Leader>so :source $MYVIMRC<CR>
+
+" Trigger a highlight only when pressing f and F. (quick-scope)
+let g:qs_highlight_on_keys = ['f', 'F']
 
 " Make cursor vertical line in insert mode
 if exists('$TMUX')
