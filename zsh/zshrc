@@ -8,3 +8,14 @@ fpath=( "$HOME/.zfunctions" $fpath )
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
 autoload -U compinit && compinit
+
+#Always in TMUX
+_not_inside_tmux() { [[ -z "$TMUX" ]] }
+
+ensure_tmux_is_running() {
+  if _not_inside_tmux; then
+    tat
+  fi
+}
+
+ensure_tmux_is_running
