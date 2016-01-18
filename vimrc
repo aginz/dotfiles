@@ -77,6 +77,21 @@ let g:ctrlp_match_window = 'max:20'
 " Use Rspec.vim with Dispatch
 let g:rspec_command = "Dispatch rspec {spec}"
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" MULTIPURPOSE TAB KEY by Gary Bernhardt
+" Indent if we're at the beginning of a line. Else, do completion.
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+function! InsertTabWrapper()
+    let col = col('.') - 1
+    if !col || getline('.')[col - 1] !~ '\k'
+        return "\<tab>"
+    else
+        return "\<c-p>"
+    endif
+endfunction
+inoremap <expr> <tab> InsertTabWrapper()
+inoremap <s-tab> <c-n>
+
 """"""""""""""""
 "THEME
 """"""""""""""""
@@ -127,10 +142,6 @@ vnoremap jk <ESC>
 nnoremap <Leader>w :w<CR>
 " Enter visual mode with space space
 nmap <Leader><Leader> V
-" Go to related mdel with <Space>m
-nnoremap <leader>m :Emodel<CR>
-" Go to related controller with <Space>c
-nnoremap <leader>c :Econtroller<CR>
 " Drop in Pry to debug. <Space> bp
 nmap <leader>bp obinding.pry<esc>^
 " Zoom a vim pane, <C-w>= to re-balance
@@ -144,6 +155,8 @@ nnoremap <Leader>o :CtrlP o<CR>
 nnoremap <Leader>e <C-w>w
 " automatically rebalance windows on vim resize
 autocmd VimResized * :wincmd =
+" Insert a hash rocket with <c-l>
+imap <c-l> <space>=><space>
 
 " TMUX RUNNER
 nnoremap <leader>irb :VtrOpenRunner {'orientation': 'h', 'percentage': 50, 'cmd': 'irb'}<cr>
