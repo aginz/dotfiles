@@ -1,3 +1,5 @@
+#vim is default editor
+export EDITOR="vim"
 
 #include golangrc
 source ~/.golangrc
