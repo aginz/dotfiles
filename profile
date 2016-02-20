@@ -1,4 +1,8 @@
-# include gitprompt for terminal
+
+#include golangrc
+source ~/.golangrc
+
+#include gitprompt for terminal
 source ~/.gitprompt
 
 #Sass Alias
