@@ -43,4 +43,4 @@ alias gst="git stash"
 alias gi="git init"
 
 #Bash Alias
-alias ls="ls -G"
+alias ls="ls -FGAlh"
