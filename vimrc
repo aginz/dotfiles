@@ -1,19 +1,18 @@
-"" VUNDLE STUFF
+""""""""""""""""
+"VUNDLE PLUGINS
+""""""""""""""""
 set nocompatible              " Required by Vundle
 filetype off                  " Required by Vundle
 
-" set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-" let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
-
-" My bundles
 Plugin 'airblade/vim-gitgutter'
 Plugin 'bling/vim-airline'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'christoomey/vim-tmux-runner'
+Plugin 'fatih/vim-go'
 Plugin 'ggreer/the_silver_searcher'
 Plugin 'godlygeek/tabular'
 Plugin 'jeffkreeftmeijer/vim-numbertoggle'
@@ -22,7 +21,6 @@ Plugin 'rizzatti/dash.vim'
 Plugin 'rking/ag.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'tComment'
-Plugin 'terryma/vim-expand-region'
 Plugin 'thoughtbot/vim-rspec'
 Plugin 'tpope/vim-dispatch'
 Plugin 'tpope/vim-rails'
@@ -30,15 +28,13 @@ Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'unblevable/quick-scope'
+Plugin 'Valloric/YouCompleteMe'
 
-" The following are examples of different formats supported.
-" Keep Plugin commands between vundle#begin/end.
-
-" All of your Plugins must be added before the following line
 call vundle#end()            " Required by Vundle
 filetype plugin indent on    " Required by Vundle
 
 "" VIM CONFIGURATION
+runtime macros/matchit.vim      " enable matchit plugin
 let mapleader = "\<Space>"      " Map leader key to space bar
 syntax enable                   " syntax highlighting
 set encoding=utf-8
@@ -49,7 +45,7 @@ set noswapfile                  " Disable swapfile from creating
 set wildmenu                    " visual autocomplete for command menu
 set wildmode="list:longest"
 set cursorline                  " horizontal highlighting
-" set cursorcolumn                " vertical highlighting
+set scrolloff=3                 " Offset scroll by 3 lines
 set shell=/bin/sh               " Load correct ruby
 set showcmd                     " display incomplete commands
 set si                          " smart indent
@@ -57,7 +53,9 @@ set timeoutlen=1000             " used for mapping delays
 set ttimeoutlen=0               " used for keycode delays
 filetype plugin indent on       " load file type plugins + indentation
 
-"" THE SILVER SEARCHER
+""""""""""""""""
+"SEARCH
+""""""""""""""""
 if executable('ag')
   " Use ag over grep
   set grepprg=ag\ --nogroup\ --nocolor
@@ -74,8 +72,13 @@ let g:ag_working_path_mode="r"
 " Show 20 results in CtrlP
 let g:ctrlp_match_window = 'max:20'
 
-" Use Rspec.vim with Dispatch
-let g:rspec_command = "Dispatch rspec {spec}"
+"Search Dash docs
+nmap <silent> <leader>d <Plug>DashSearch
+
+set hlsearch                    " highlight matches
+set incsearch                   " incremental searching
+set ignorecase                  " searches are case insensitive...
+set smartcase                   " ... unless they contain at least one capital letter
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " MULTIPURPOSE TAB KEY by Gary Bernhardt
@@ -96,6 +99,8 @@ inoremap <s-tab> <c-n>
 "THEME
 """"""""""""""""
 set background=dark
+" let g:airline#extensions#tabline#enabled = 1             " vim airline tab line
+" let g:airline#extensions#tabline#buffer_nr_show = 1      " show buffer numbers in tabline
 
 "" grb256
 :set t_Co=256 " 256 colors
@@ -118,30 +123,26 @@ function! BgToggleSol()
 endfunction
 nnoremap <leader>bg :call BgToggleSol()<cr>
 
-"" WHITESPACE
-set nowrap                      " don't wrap lines
-set tabstop=2 softtabstop=2 shiftwidth=2      " a tab is two spaces (or set this to 4)
-set expandtab                   " use spaces, not tabs (optional)
-set backspace=indent,eol,start  " backspace through everything in insert mode
-set list listchars=tab:»·,trail:·     " Display extra whitespace
-nnoremap <Leader>rt :%s/\s\+$//e<CR>  " Clear trailing whitespace
-au BufWritePre *.rb :%s/\s\+$//e      " Remove trailing whitespace on save for ruby files
+""""""""""""""""
+"WHITESPACE
+""""""""""""""""
+set nowrap                               " don't wrap lines
+set tabstop=2 softtabstop=2 shiftwidth=2 " a tab is two spaces (or set this to 4)
+set expandtab                            " use spaces, not tabs (optional)
+set backspace=indent,eol,start           " backspace through everything in insert mode
+set list listchars=tab:»·,trail:·        " Display extra whitespace
+nnoremap <Leader>rt :%s/\s\+$//e<CR>     " Clear trailing whitespace
+au BufWritePre *.rb :%s/\s\+$//e         " Remove trailing whitespace on save for ruby files
 
-"" SEARCHING
-set hlsearch                    " highlight matches
-set incsearch                   " incremental searching
-set ignorecase                  " searches are case insensitive...
-set smartcase                   " ... unless they contain at least one capital letter
-set scrolloff=3
 
-"" MAPPINGS
+""""""""""""""""
+"MAPPINGS
+""""""""""""""""
 " Map jk to escape
 inoremap jk <ESC>
 vnoremap jk <ESC>
 " Type <Space>w to save file
 nnoremap <Leader>w :w<CR>
-" Enter visual mode with space space
-nmap <Leader><Leader> V
 " Drop in Pry to debug. <Space> bp
 nmap <leader>bp obinding.pry<esc>^
 " Zoom a vim pane, <C-w>= to re-balance
@@ -151,8 +152,8 @@ nnoremap <leader>= :wincmd =<cr>
 nnoremap <Leader>bt <C-w>T
 " Open CTRL P
 nnoremap <Leader>o :CtrlP o<CR>
-" Change panes
-nnoremap <Leader>e <C-w>w
+" Close quickfix
+nnoremap <Leader>q :cclose<CR>
 " automatically rebalance windows on vim resize
 autocmd VimResized * :wincmd =
 " Insert a hash rocket with <c-l>
@@ -167,11 +168,6 @@ nnoremap <leader>va :VtrAttachToPane<cr>
 nmap <C-f> :VtrSendLinesToRunner<cr>
 vmap <C-f> <Esc>:VtrSendLinesToRunner<cr>
 
-" VIM-EXPAND REGION MAPPINGS
-" Press v to enter visual mode, vv to select word, vvv to select line, etc.
-vmap v <Plug>(expand_region_expand)
-vmap <C-v> <Plug>(expand_region_shrink)
-
 " NERDTREE MAPPINGS
 " Toggle nerd tree with <SPACE> nt
 map <Leader>nt :NERDTreeToggle<CR>
@@ -181,6 +177,7 @@ map <Leader>t :call RunCurrentSpecFile()<CR>
 map <Leader>s :call RunNearestSpec()<CR>
 map <Leader>l :call RunLastSpec()<CR>
 map <Leader>a :call RunAllSpecs()<CR>
+let g:rspec_command = "Dispatch rspec {spec}"    " Use Rspec.vim with Dispatch
 
 " Copy & paste to system clipboard with <Space>p and <Space>y
 vmap <Leader>y "+y
@@ -192,12 +189,6 @@ vmap <Leader>P "+P
 
 " Git Blame mapping with <SPACE> b
 vmap <Leader>b :<C-U>!git blame <C-R>=expand("%:p") <CR> \| sed -n <C-R>=line("'<") <CR>,<C-R>=line("'>") <CR>p <CR>
-
-" Navigate panes with <CTRL> + h,j,k,l
-" nnoremap <C-h> <C-w>h
-" nnoremap <C-j> <C-w>j
-" nnoremap <C-k> <C-w>k
-" nnoremap <C-l> <C-w>l
 
 " Open VIMRC file with <SPACE> vm
 nmap <Leader>vm :tabedit $MYVIMRC<CR>
