@@ -12,7 +12,8 @@ alias swm="sass --watch style/main.scss:css/main.css"
 alias sw="sass --watch"
 
 #Rails Alias
-alias rs="rails s"
+alias r="rails"
+alias s="server"
 
 #Nginx Alias for localhost:3000 / Legacy
 alias seelog="tail -f log/development.log"
