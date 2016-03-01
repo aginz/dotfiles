@@ -6,8 +6,12 @@ source ~/.bash_profile
 fpath=( "$HOME/.zfunctions" $fpath )
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+export PATH="$HOME/.node/bin:$PATH" # Add node
 
 autoload -U compinit && compinit
+
+#emacs mode
+bindkey -e
 
 #Always in TMUX
 _not_inside_tmux() { [[ -z "$TMUX" ]] }
