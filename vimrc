@@ -144,7 +144,7 @@ vnoremap jk <ESC>
 " Type <Space>w to save file
 nnoremap <Leader>w :w<CR>
 " Drop in Pry to debug. <Space> bp
-nmap <leader>bp obinding.pry<esc>^
+nmap <leader>bp orequire 'pry'; binding.pry<esc>^
 " Zoom a vim pane, <C-w>= to re-balance
 nnoremap <leader>- :wincmd _<cr>:wincmd \|<cr>
 nnoremap <leader>= :wincmd =<cr>
