@@ -26,8 +26,6 @@ alias v="vim"
 alias ta="tmux attach"
 
 #Git Alias
-alias git="hub"
-
 alias g="git status"
 alias ga="git add"
 alias gc="git commit"
