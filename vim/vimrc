@@ -36,6 +36,8 @@ filetype plugin indent on    " Required by Vundle
 runtime macros/matchit.vim      " enable matchit plugin
 let mapleader = "\<Space>"      " Map leader key to space bar
 syntax enable                   " syntax highlighting
+set clipboard=unnamed           " access system clipboard
+set colorcolumn=80              " mark 80 characters
 set encoding=utf-8
 set laststatus=2                " Always display the status line
 set number                      " show line numbers
@@ -105,6 +107,8 @@ set background=dark
 :set t_Co=256 " 256 colors
 :set background=dark
 :color grb256
+" for color column 80 (http://vim.wikia.com/wiki/Xterm256_color_names_for_console_Vim)
+highlight ColorColumn ctermbg=163
 
 "" Solarized
 " let g:solarized_termcolors=16
