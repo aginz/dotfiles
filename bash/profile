@@ -14,10 +14,8 @@ alias sw="sass --watch"
 #Rails Alias
 alias r="rails"
 alias s="server"
-
-#Nginx Alias for localhost:3000 / Legacy
-alias seelog="tail -f log/development.log"
-alias restart="touch tmp/restart.txt"
+alias b="bundle"
+alias be="bundle exec"
 
 #VIM Alias
 alias v="vim"
