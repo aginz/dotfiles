@@ -109,6 +109,8 @@ set background=dark
 :color grb256
 " for color column 80 (http://vim.wikia.com/wiki/Xterm256_color_names_for_console_Vim)
 highlight ColorColumn ctermbg=163
+" for highlighting in Visual mode
+hi Visual term=reverse cterm=reverse guibg=Grey
 
 "" Solarized
 " let g:solarized_termcolors=16
