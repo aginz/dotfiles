@@ -118,16 +118,6 @@ hi Visual term=reverse cterm=reverse guibg=Grey
 " let g:airline_theme="solarized"    "vim airline theme
 " colorscheme solarized
 
-" Manually toggle solarized background with leader bg
-function! BgToggleSol()
-  if &background == "light"
-    execute ":set background=dark"
-  else
-    execute ":set background=light"
-  endif
-endfunction
-nnoremap <leader>bg :call BgToggleSol()<cr>
-
 """"""""""""""""
 "WHITESPACE
 """"""""""""""""
