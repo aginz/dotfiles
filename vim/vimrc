@@ -22,7 +22,6 @@ Plugin 'rking/ag.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'tComment'
 Plugin 'thoughtbot/vim-rspec'
-Plugin 'tpope/vim-dispatch'
 Plugin 'tpope/vim-rails'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-fugitive'
@@ -172,7 +171,7 @@ map <Leader>t :call RunCurrentSpecFile()<CR>
 map <Leader>s :call RunNearestSpec()<CR>
 map <Leader>l :call RunLastSpec()<CR>
 map <Leader>a :call RunAllSpecs()<CR>
-let g:rspec_command = "Dispatch rspec {spec}"    " Use Rspec.vim with Dispatch
+let g:rspec_command = "VtrSendCommandToRunner! rspec {spec}"
 
 " Copy & paste to system clipboard with <Space>p and <Space>y
 vmap <Leader>y "+y
