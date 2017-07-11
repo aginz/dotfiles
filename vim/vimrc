@@ -12,21 +12,19 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'bling/vim-airline'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'christoomey/vim-tmux-runner'
+Plugin 'digitaltoad/vim-pug'
 Plugin 'elixir-lang/vim-elixir'
 Plugin 'fatih/vim-go'
 Plugin 'ggreer/the_silver_searcher'
 Plugin 'godlygeek/tabular'
 Plugin 'jeffkreeftmeijer/vim-numbertoggle'
 Plugin 'kien/ctrlp.vim'
-Plugin 'rizzatti/dash.vim'
 Plugin 'rking/ag.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'tComment'
 Plugin 'thoughtbot/vim-rspec'
 Plugin 'tpope/vim-rails'
 Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-unimpaired'
 Plugin 'unblevable/quick-scope'
 
 call vundle#end()            " Required by Vundle
@@ -72,9 +70,6 @@ endif
 let g:ag_working_path_mode="r"
 " Show 20 results in CtrlP
 let g:ctrlp_match_window = 'max:20'
-
-"Search Dash docs
-nmap <silent> <leader>d <Plug>DashSearch
 
 set hlsearch                    " highlight matches
 set incsearch                   " incremental searching
@@ -169,15 +164,7 @@ map <Leader>t :call RunCurrentSpecFile()<CR>
 map <Leader>s :call RunNearestSpec()<CR>
 map <Leader>l :call RunLastSpec()<CR>
 map <Leader>a :call RunAllSpecs()<CR>
-let g:rspec_command = "VtrSendCommandToRunner! rspec {spec}"
-
-" Copy & paste to system clipboard with <Space>p and <Space>y
-vmap <Leader>y "+y
-vmap <Leader>d "+d
-nmap <Leader>p "+p
-nmap <Leader>P "+P
-vmap <Leader>p "+p
-vmap <Leader>P "+P
+let g:rspec_command = "!rspec --drb {spec}"
 
 " Git Blame mapping with <SPACE> b
 vmap <Leader>b :<C-U>!git blame <C-R>=expand("%:p") <CR> \| sed -n <C-R>=line("'<") <CR>,<C-R>=line("'>") <CR>p <CR>
