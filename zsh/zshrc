@@ -1,7 +1,14 @@
-source ~/.async.zsh
-source ~/.pure.zsh
-source ~/.profile
-source ~/.bash_profile
+DOTFILES="$HOME/.dotfiles"
+
+#vim is default editor
+export EDITOR="vim"
+
+source $DOTFILES/bash/bash_profile
+source $DOTFILES/git/gitprompt
+source $DOTFILES/go/golangrc
+source $DOTFILES/zsh/aliases.zsh
+source $DOTFILES/zsh/async.zsh
+source $DOTFILES/zsh/pure.zsh
 
 fpath=( "$HOME/.zfunctions" $fpath )
 

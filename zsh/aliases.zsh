@@ -1,16 +1,3 @@
-#vim is default editor
-export EDITOR="vim"
-
-#include golangrc
-source ~/.golangrc
-
-#include gitprompt for terminal
-source ~/.gitprompt
-
-#Sass Alias
-alias swm="sass --watch style/main.scss:css/main.css"
-alias sw="sass --watch"
-
 #Rails Alias
 alias r="rails"
 alias s="server"
