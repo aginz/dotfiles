@@ -29,7 +29,7 @@ sudo yum -y install \
   zsh
 
 # Change login shell from bash to zsh
-chsh -s $(which zsh)
+sudo chsh -s $(which zsh) $(whoami)
 
 # Download silver searcher
 if ! [ -d "$SRC_DIRECTORY/the_silver_searcher" ]; then
