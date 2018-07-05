@@ -18,6 +18,7 @@ Plugin 'ggreer/the_silver_searcher'
 Plugin 'godlygeek/tabular'
 Plugin 'jeffkreeftmeijer/vim-numbertoggle'
 Plugin 'kien/ctrlp.vim'
+Plugin 'lifepillar/vim-solarized8'
 Plugin 'mattn/emmet-vim'
 Plugin 'rking/ag.vim'
 Plugin 'scrooloose/nerdtree'
@@ -98,19 +99,12 @@ inoremap <s-tab> <c-n>
 """"""""""""""""
 "THEME
 """"""""""""""""
-" for color column 80 (http://vim.wikia.com/wiki/Xterm256_color_names_for_console_Vim)
-highlight ColorColumn ctermbg=163
-" for highlighting in Visual mode
-hi Visual term=reverse cterm=reverse guibg=Grey
 set background=dark
-
-"" grb256
-set t_Co=256 " 256 colors
-color grb256
-
-"" Solarized
-" let g:solarized_termcolors=16
-" let g:solarized_termtrans = 1      "make solarized work with tmux
+" Fix colorscheme for tmux + vim
+set termguicolors
+let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+colorscheme solarized8
 
 """"""""""""""""
 "WHITESPACE / TABS
@@ -138,8 +132,6 @@ nnoremap <leader>- :wincmd _<cr>:wincmd \|<cr>
 nnoremap <leader>= :wincmd =<cr>
 " Breakout into a new tab
 nnoremap <Leader>bt <C-w>T
-" Open CTRL P
-nnoremap <Leader>o :CtrlP o<CR>
 " Close quickfix
 nnoremap <Leader>q :cclose<CR>
 " automatically rebalance windows on vim resize
@@ -174,6 +166,12 @@ let g:qs_highlight_on_keys = ['f', 'F']
 " Enable just for html/css
 let g:user_emmet_install_global = 0
 autocmd FileType html,css EmmetInstall
+
+""""""""""""""""
+"CTRL-P
+""""""""""""""""
+" Open CTRL P
+nnoremap <Leader>o :CtrlP o<CR>
 
 """"""""""""""""
 "TMUX RUNNER

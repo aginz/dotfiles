@@ -6,6 +6,7 @@ alias be="bundle exec"
 
 #VIM Alias
 alias v="vim"
+alias vi="vim"
 
 #TMUX Alias
 alias ta="tmux attach"
