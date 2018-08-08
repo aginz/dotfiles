@@ -3,7 +3,6 @@ DOTFILES="$HOME/.dotfiles"
 #vim is default editor
 export EDITOR="vim"
 
-source $DOTFILES/bash/bash_profile
 source $DOTFILES/git/gitprompt
 source $DOTFILES/go/golangrc
 source $DOTFILES/zsh/aliases.zsh

@@ -1,5 +1,0 @@
-export PATH=/usr/local/bin:$PATH #Homebrew
-export PATH=~/bin/:$PATH #Load bin directory
-PATH=$PATH:/usr/local/sbin #RabbitMQ
-
-source ~/.bash_profile.work # Load the work bash_profile
