@@ -28,6 +28,18 @@ Plugin 'tpope/vim-rails'
 Plugin 'tpope/vim-surround'
 Plugin 'unblevable/quick-scope'
 
+" JS/React Plugins
+Plugin 'sbdchd/neoformat'
+Plugin 'pangloss/vim-javascript'
+Plugin 'mxw/vim-jsx'
+Plugin 'valloric/MatchTagAlways'
+Plugin 'epilande/vim-es2015-snippets'
+Plugin 'epilande/vim-react-snippets'
+Plugin 'SirVer/ultisnips'
+" Plugin 'tpope/vim-projectionist'
+" Plugin 'prettier/prettier'
+" Plugin 'neomake/neomake'
+
 call vundle#end()            " Required by Vundle
 filetype plugin indent on    " Required by Vundle
 
@@ -199,4 +211,21 @@ map <Leader>a :call RunAllSpecs()<CR>
 let g:rspec_command = "!rspec --drb {spec}"
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "RUBY END
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"JS START
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Allow Vim-JSX to highlight *.js files
+let g:jsx_ext_required = 0
+" Allow MatchTagAlways to highlight JSX
+let g:mta_filetypes = {
+  \ 'javascript.jsx' : 1,
+  \}
+" Trigger for snippet configuration
+let g:UltiSnipsExpandTrigger="<c-k>"
+" Call linter When writing a buffer (no delay).
+" call neomake#configure#automake('w')
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"JS End
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
