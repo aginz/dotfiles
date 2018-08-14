@@ -1,0 +1,8 @@
+#!/bin/bash
+
+# Exit if any subcommand fails
+set -e
+
+# convert requires imagemagick
+FILE=$1
+convert ~/Desktop/"$FILE".png -resize 1500x1500 ~/Desktop/resize-"$FILE".png
