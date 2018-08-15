@@ -224,8 +224,19 @@ let g:mta_filetypes = {
   \}
 " Trigger for snippet configuration
 let g:UltiSnipsExpandTrigger="<c-k>"
-" Call linter When writing a buffer (no delay).
-" call neomake#configure#automake('w')
+
+" Allow neoformat to format file with prettier
+let g:neoformat_try_formatprg = 1
+augroup NeoformatAutoFormat
+  autocmd!
+  autocmd FileType javascript,javascript.jsx setlocal formatprg=prettier\
+        \--stdin\
+        \--print-width\ 80\
+        \--single-quote\
+        \--trailing-comma\ es5
+  autocmd BufWritePre *.js,*.jsx Neoformat
+augroup END
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "JS End
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
