@@ -29,3 +29,7 @@ alias gi="git init"
 
 #Bash Alias
 alias ls="ls -FGAlh"
+
+#Navigation Alias
+alias gocode="cd ~/code"
+alias gowork="cd ~/code"
