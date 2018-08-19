@@ -31,5 +31,10 @@ alias gi="git init"
 alias ls="ls -FGAlh"
 
 #Navigation Alias
-alias gocode="cd ~/code"
+WINDOWS="/mnt/c/Users/leona"
+if [ "$(uname -s)" = "Linux" ]; then
+  alias gocode="cd $WINDOWS/code"
+else
+  alias gocode="cd ~/code"
+fi
 alias gowork="cd ~/code"
