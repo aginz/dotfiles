@@ -1,12 +1,24 @@
+# Constants
 DOTFILES="$HOME/.dotfiles"
+OS=
 #vim is default editor
 export EDITOR="vim"
+
+# Determine OS
+if [[ "$(uname)" == "Darwin" ]]; then
+  OS="Darwin"
+elif [[ "$(expr substr $(uname -s) 1 5)" == "Linux" ]]; then
+  OS="Linux"
+elif [[ "$(expr substr $(uname -s) 1 10)" == "MINGW32_NT" ]]; then
+  OS="Cygwin"
+fi
 
 source $DOTFILES/git/gitprompt
 source $DOTFILES/go/golangrc
 source $DOTFILES/zsh/aliases.zsh
 source $DOTFILES/zsh/async.zsh
 source $DOTFILES/zsh/pure.zsh
+source $DOTFILES/zsh/keyboardio.zsh
 
 fpath=( "$HOME/.zfunctions" $fpath )
 

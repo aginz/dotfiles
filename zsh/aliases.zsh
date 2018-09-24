@@ -33,7 +33,7 @@ alias ls="ls -FGAlh"
 # Constants
 OS_PATH=
 
-if [[ "$(uname)" == "Darwin" ]]; then
+if [[ $OS == "Darwin" ]]; then
   OS_PATH="~"
 else
   OS_PATH="/mnt/c/Users/leona"
