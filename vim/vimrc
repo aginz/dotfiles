@@ -73,6 +73,9 @@ filetype plugin indent on       " load file type plugins + indentation
 if executable('ag')
   " Use ag over grep
   set grepprg=ag\ --nogroup\ --nocolor
+
+  " Use Ag for FZF for listing files.  Fast and respects gitignore
+  let $FZF_DEFAULT_COMMAND = 'ag -g ""'
 endif
 
 " Ag.vim will always search from project root
