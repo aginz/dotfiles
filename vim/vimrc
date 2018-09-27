@@ -164,6 +164,14 @@ let g:user_emmet_install_global = 0
 autocmd FileType html,css EmmetInstall
 
 """"""""""""""""
+"Git
+""""""""""""""""
+" Git Blame mapping with <Leader> b
+vmap <Leader>b :<C-U>!git blame <C-R>=expand("%:p") <CR> \| sed -n <C-R>=line("'<") <CR>,<C-R>=line("'>") <CR>p <CR>
+" Unstage hunk in git
+nmap <Leader>hr <Plug>GitGutterUndoHunk
+
+""""""""""""""""
 "MISC MAPPINGS
 """"""""""""""""
 " Map jk to escape
@@ -180,8 +188,6 @@ nnoremap <Leader>q :cclose<CR>
 autocmd VimResized * :wincmd =
 " Insert a hash rocket with <c-l>
 imap <c-l> <space>=><space>
-" Git Blame mapping with <Leader> b
-vmap <Leader>b :<C-U>!git blame <C-R>=expand("%:p") <CR> \| sed -n <C-R>=line("'<") <CR>,<C-R>=line("'>") <CR>p <CR>
 " Open VIMRC file with <Leader> vm
 nmap <Leader>vm :tabedit $MYVIMRC<CR>
 " Source VIMRC with <Leader> so
