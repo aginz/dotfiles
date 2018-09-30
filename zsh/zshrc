@@ -47,4 +47,7 @@ source $DOTFILES/zsh/nvm.zsh
 # Source .zshrc.work if it exists
 [ -s "$HOME/.zshrc.work" ] && source $HOME/.zshrc.work
 
+# Source .zshrc.home if it exists
+[ -s "$HOME/.zshrc.home" ] && source $HOME/.zshrc.home
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

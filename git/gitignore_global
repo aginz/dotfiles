@@ -6,3 +6,5 @@
 .ruby-version
 .idea
 tags
+*.swp
+*.swo

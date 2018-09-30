@@ -1,0 +1,2 @@
+export PATH=~.local/bin:$PATH:/mnt/c/go/bin
+alias go='go.exe'
