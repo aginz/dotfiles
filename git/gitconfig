@@ -10,6 +10,7 @@
   co = checkout
   d = diff
   ds = diff --staged
+  f = fetch
   l = log --decorate --oneline
   p = push
   pl = pull --ff-only
