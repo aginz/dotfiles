@@ -12,20 +12,7 @@ alias vi="vim"
 alias ta="tmux attach"
 
 #Git Alias
-alias g="git status"
-alias ga="git add"
-alias gc="git commit"
-alias gco="git checkout"
-alias gpl="git pull --ff-only"
-alias gpo="git push origin"
-alias gtree="git log --graph --decorate --oneline --all"
-alias gka="gitk --all &"
-alias gd="git diff"
-alias gb="git branch"
-alias gl="git log --decorate --oneline"
-alias gld='git log --pretty=format:"%h %ad %s" --date=short --all'
-alias gst="git stash"
-alias gi="git init"
+alias g="git"
 
 #Bash Alias
 alias ls="ls -FGAlh"

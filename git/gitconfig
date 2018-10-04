@@ -1,0 +1,22 @@
+[user]
+  name = 'Ashley Ginsberg'
+  email = 'aginsberg@magicleap.com'
+
+[alias]
+  a = add
+  b = branch
+  c = commit
+  co = checkout
+  d = diff
+  ds = diff --staged
+  l = log --decorate --oneline
+  p = push
+  pl = pull --ff-only
+  po = push origin
+  r = reset
+  s = status
+  st = stash
+  tree = log --graph --decorate --oneline --all
+
+[url "git@bitbucket.org:"]
+	insteadOf = https://bitbucket.org/
