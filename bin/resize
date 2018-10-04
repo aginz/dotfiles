@@ -5,4 +5,10 @@ set -e
 
 # convert requires imagemagick
 FILE=$1
-convert ~/Desktop/"$FILE".png -resize 1500x1500 ~/Desktop/resize-"$FILE".png
+SIZE=$2
+
+if [ -z "$2" ]; then
+  SIZE=1500
+fi
+
+convert ~/Desktop/"$FILE".png -resize "$SIZE"x"$SIZE" ~/Desktop/resize-"$FILE".png
