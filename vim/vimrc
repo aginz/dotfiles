@@ -21,7 +21,6 @@ Plugin 'junegunn/fzf.vim'
 Plugin 'lifepillar/vim-solarized8'
 Plugin 'mattn/emmet-vim'
 Plugin 'Raimondi/delimitMate'
-Plugin 'rking/ag.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'tComment'
 Plugin 'thoughtbot/vim-rspec'
@@ -96,7 +95,8 @@ nmap <Leader>o :Files<CR>
 " buffer management
 nmap <leader>b :Buffers<CR>
 " grep for cword
-nmap <leader>A :Ag <C-R>=expand("<cword>")<CR><CR>
+nmap <leader>A :Ag! <C-R>=expand("<cword>")<CR><CR>
+nmap <leader>a :Ag <C-R>=expand("<cword>")<CR><CR>
 " fzf window
 let g:fzf_layout = { 'down': '~50%' }
 " Augmenting Ag command using fzf#vim#with_preview function
@@ -241,7 +241,7 @@ nnoremap <leader>irb :VtrOpenRunner {'orientation': 'h', 'percentage': 50, 'cmd'
 map <Leader>t :call RunCurrentSpecFile()<CR>
 map <Leader>s :call RunNearestSpec()<CR>
 map <Leader>l :call RunLastSpec()<CR>
-map <Leader>a :call RunAllSpecs()<CR>
+map <Leader>all :call RunAllSpecs()<CR>
 let g:rspec_command = "!rspec --drb {spec}"
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "RUBY END

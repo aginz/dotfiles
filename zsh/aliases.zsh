@@ -29,3 +29,4 @@ fi
 # Set Navigation Aliases
 alias gocode="cd $OS_PATH/code"
 alias gowork="cd $OS_PATH/code"
+alias dot="cd $HOME/.dotfiles"
