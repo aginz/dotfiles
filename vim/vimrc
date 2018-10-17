@@ -75,7 +75,7 @@ if executable('ag')
   set grepprg=ag\ --nogroup\ --nocolor
 
   " Use Ag for FZF for listing files.  Fast and respects gitignore
-  let $FZF_DEFAULT_COMMAND = 'ag -g ""'
+  let $FZF_DEFAULT_COMMAND = 'ag --hidden -g ""'
 endif
 
 " Ag.vim will always search from project root
@@ -298,3 +298,33 @@ nnoremap <leader>ap :ALEPreviousWrap<cr>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "JS End
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" open terraform docs in browser
+autocmd FileType tf nnoremap <silent> gd :call OpenTerraformDoc()<CR>
+
+function! OpenTerraformDoc()
+    let lineData = split(substitute(getline('.'), '"', '', 'g'), ' ')
+
+    if len(lineData) < 3
+      return
+    endif
+
+    let type = get(lineData, 0)
+    let source = get(lineData, 1)
+
+    let baseURI = 'https://www.terraform.io/docs/providers/'
+    let resourceType=''
+    if match('resource', type) == 0
+      let resourceType="r"
+    elseif match('data', type) == 0
+      let resourceType="d"
+    else
+      return
+    endif
+
+    let provider = matchstr(source, '^[a-z]\+_')
+    let sourceName = substitute(source, provider, '', '')
+    let provider = substitute(provider, '_', '', '')
+
+    silent exec "!open '" . join([baseURI, provider, '/', resourceType, '/', sourceName, '.html'], '') . "'" | redraw!
+endfunction
