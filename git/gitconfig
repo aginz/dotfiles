@@ -20,6 +20,7 @@
   s = status
   st = stash
   tree = log --graph --decorate --oneline --all
+  conflicted = !vim +Conflicted
 
 [url "git@bitbucket.org:"]
-	insteadOf = https://bitbucket.org/
+  insteadOf = https://bitbucket.org/

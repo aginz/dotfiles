@@ -8,7 +8,6 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 Plugin 'gmarik/Vundle.vim'
-Plugin 'airblade/vim-gitgutter'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'christoomey/vim-tmux-runner'
 Plugin 'digitaltoad/vim-pug'
@@ -24,10 +23,14 @@ Plugin 'Raimondi/delimitMate'
 Plugin 'scrooloose/nerdtree'
 Plugin 'tComment'
 Plugin 'thoughtbot/vim-rspec'
-Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-rails'
 Plugin 'tpope/vim-surround'
 Plugin 'unblevable/quick-scope'
+
+" Git Plugins
+Plugin 'airblade/vim-gitgutter'
+Plugin 'christoomey/vim-conflicted'
+Plugin 'tpope/vim-fugitive'
 
 " JS/React Plugins
 Plugin 'sbdchd/neoformat'
