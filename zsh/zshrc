@@ -51,3 +51,9 @@ source $DOTFILES/zsh/nvm.zsh
 [ -f "$HOME/.zshrc.home" ] && source $HOME/.zshrc.home
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Expand zsh history, save it, and ignore dups
+HISTFILE=~/.zsh_history
+HISTSIZE=9999
+SAVEHIST=$HISTSIZE
+setopt hist_ignore_all_dups
