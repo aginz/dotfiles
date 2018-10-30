@@ -10,3 +10,4 @@ export PATH=$GOBIN:$PATH
 
 alias gosrc='cd ~/go/src'
 alias gobin='cd ~/go/bin'
+alias gome='cd "${HOME}/go/src/github.com/aginz"'
