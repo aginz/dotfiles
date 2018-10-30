@@ -217,8 +217,6 @@ imap <c-l> <space>=><space>
 nmap <Leader>vm :tabedit $MYVIMRC<CR>
 " Source VIMRC with <Leader> so
 nmap <Leader>so :source $MYVIMRC<CR>
-" Remove highlighting with CTRL-n
-nmap <c-n> :nohl<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "RUBY START
