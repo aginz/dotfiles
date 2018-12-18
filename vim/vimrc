@@ -27,6 +27,7 @@ Plugin 'thoughtbot/vim-rspec'
 Plugin 'tpope/vim-rails'
 Plugin 'tpope/vim-surround'
 Plugin 'unblevable/quick-scope'
+Plugin 'Yggdroot/indentLine'
 
 " Git Plugins
 Plugin 'airblade/vim-gitgutter'
@@ -34,7 +35,6 @@ Plugin 'christoomey/vim-conflicted'
 Plugin 'tpope/vim-fugitive'
 
 " JS/React Plugins
-Plugin 'sbdchd/neoformat'
 Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
 Plugin 'valloric/MatchTagAlways'
@@ -42,6 +42,7 @@ Plugin 'epilande/vim-es2015-snippets'
 Plugin 'epilande/vim-react-snippets'
 Plugin 'SirVer/ultisnips'
 Plugin 'w0rp/ale'
+Plugin 'moll/vim-node'
 " Plugin 'tpope/vim-projectionist'
 " Plugin 'prettier/prettier'
 " Plugin 'neomake/neomake'
@@ -181,6 +182,7 @@ set expandtab                            " use spaces, not tabs (optional)
 set backspace=indent,eol,start           " backspace through everything in insert mode
 set list listchars=tab:»·,trail:·        " Display extra whitespace
 nnoremap <Leader>rt :%s/\s\+$//e<CR>     " Clear trailing whitespace
+let g:vim_json_syntax_conceal = 0        " fixes a problem with indentLine that never lets you see quotes in json
 
 """"""""""""""""
 "Emmet
@@ -262,18 +264,6 @@ let g:mta_filetypes = {
   \}
 " Trigger for snippet configuration
 let g:UltiSnipsExpandTrigger="<c-k>"
-
-" Allow neoformat to format file with prettier
-let g:neoformat_try_formatprg = 1
-augroup NeoformatAutoFormat
-  autocmd!
-  autocmd FileType javascript,javascript.jsx setlocal formatprg=prettier\
-        \--stdin\
-        \--print-width\ 80\
-        \--single-quote\
-        \--trailing-comma\ es5
-  autocmd BufWritePre *.js,*.jsx Neoformat
-augroup END
 
 " Allow ale to fix js files on save
 let g:ale_fix_on_save = 1
