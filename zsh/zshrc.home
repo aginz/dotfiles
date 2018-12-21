@@ -1,1 +1,2 @@
-export PATH=~.local/bin:$PATH
+# For solarized theme on Ubuntu Gnome Terminal
+eval `dircolors $HOME/.dir_colors/dircolors`

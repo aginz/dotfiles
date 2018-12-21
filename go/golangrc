@@ -1,10 +1,4 @@
-if [[ $OS == "Darwin" ]]; then
-  export GOPATH="$HOME/go"
-else
-  alias go='go.exe'
-  export GOPATH="/mnt/c/Users/leona/go"
-fi
-
+export GOPATH="$HOME/go"
 export GOBIN="$GOPATH/bin"
 export PATH=$GOBIN:$PATH
 

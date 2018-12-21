@@ -1,6 +1,6 @@
 [user]
   name = 'Ashley Ginsberg'
-  email = 'aginsberg@magicleap.com'
+  email = 'leonarad@gmail.com'
 
 [alias]
   a = add
@@ -21,6 +21,3 @@
   st = stash
   tree = log --graph --decorate --oneline --all
   conflicted = !vim +Conflicted
-
-[url "git@bitbucket.org:"]
-  insteadOf = https://bitbucket.org/

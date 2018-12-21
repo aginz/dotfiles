@@ -17,16 +17,6 @@ alias g="git"
 #Bash Alias
 alias ls="ls -FGAlh"
 
-# Constants
-OS_PATH=
-
-if [[ $OS == "Darwin" ]]; then
-  OS_PATH="~"
-else
-  OS_PATH="/mnt/c/Users/leona"
-fi
-
 # Set Navigation Aliases
-alias gocode="cd $OS_PATH/code"
-alias gowork="cd $OS_PATH/code"
+alias gocode="cd $HOME/code"
 alias dot="cd $HOME/.dotfiles"
