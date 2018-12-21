@@ -180,7 +180,7 @@ set nowrap                               " don't wrap lines
 set tabstop=2 softtabstop=2 shiftwidth=2 " a tab is two spaces (or set this to 4)
 set expandtab                            " use spaces, not tabs (optional)
 set backspace=indent,eol,start           " backspace through everything in insert mode
-set list listchars=tab:»·,trail:·        " Display extra whitespace
+" set list listchars=tab:»·,trail:·        " Display extra whitespace
 nnoremap <Leader>rt :%s/\s\+$//e<CR>     " Clear trailing whitespace
 let g:vim_json_syntax_conceal = 0        " fixes a problem with indentLine that never lets you see quotes in json
 
