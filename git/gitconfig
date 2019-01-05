@@ -18,6 +18,6 @@
   po = push origin
   r = reset
   s = status
-  st = stash
+  st = stash -u
   tree = log --graph --decorate --oneline --all
   conflicted = !vim +Conflicted
