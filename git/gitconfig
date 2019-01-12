@@ -12,12 +12,14 @@
   d = diff
   ds = diff --staged
   f = fetch -p
-  l = log --decorate --oneline
   p = push
   pl = pull --ff-only
   po = push origin
   r = reset
   s = status
   st = stash -u
-  tree = log --graph --decorate --oneline --all
   conflicted = !vim +Conflicted
+  glog = log -E -i --grep
+  l = log --pretty=format:'%C(yellow)%h%C(reset) - %an [%C(green)%ar%C(reset)] %s'
+  search = log -S
+  tree = log --graph --decorate --oneline --all
