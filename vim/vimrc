@@ -201,6 +201,18 @@ vmap <Leader>B :<C-U>!git blame <C-R>=expand("%:p") <CR> \| sed -n <C-R>=line("'
 nmap <Leader>hr <Plug>GitGutterUndoHunk
 
 """"""""""""""""
+"CONVENIENCE
+""""""""""""""""
+" Q for Ex mode is useless. This will run the macro in q register
+nnoremap Q @q
+" Swap 0 and ^. Jump to the first non-whitespace character with 0 and go to
+" beginning of line with ^
+nnoremap 0 ^
+nnoremap ^ 0
+" Switch between the last two files
+nnoremap <leader><leader> <c-^>
+
+""""""""""""""""
 "MISC MAPPINGS
 """"""""""""""""
 " Map jk to escape
