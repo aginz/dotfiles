@@ -105,7 +105,15 @@ else
  tput setaf 1; echo '>> Dotfiles was already setup.'
 fi
 
-tput setaf 2; echo '>> LINUX SETUP COMPLETE!'
 # Enter zsh shell
 zsh
 
+# Download tmux plugin manager
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+tmux source ~/.tmux.conf
+
+# Download and install fzf
+git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+~/.fzf/install
+
+tput setaf 2; echo '>> LINUX SETUP COMPLETE!'
