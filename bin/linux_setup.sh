@@ -91,6 +91,7 @@ if ! [ -d $DOTFILES ]; then
   ln -sf $DOTFILES/ag/agignore $HOME/.agignore
   ln -sf $DOTFILES/git/gitprompt $HOME/.gitprompt
   ln -sf $DOTFILES/git/gitignore_global $HOME/.gitignore_global
+  ln -sf $DOTFILES/git/gitconfig $HOME/.gitconfig
   ln -sf $DOTFILES/go/golangrc $HOME/.golangrc
   sudo ln -sf $DOTFILES/tmux/tat /usr/local/bin/tat && chmod +x $DOTFILES/tmux/tat
   ln -sf $DOTFILES/tmux/tmux.conf $HOME/.tmux.conf
