@@ -8,6 +8,7 @@
   b = branch
   c = commit
   ca = commit --amend
+  car = commit --amend --no-edit
   co = checkout
   d = diff
   ds = diff --staged
@@ -16,10 +17,11 @@
   pl = pull --ff-only
   po = push origin
   r = reset
+  uncommit = reset --soft HEAD^
   s = status
   st = stash -u
   conflicted = !vim +Conflicted
   glog = log -E -i --grep
   l = log --pretty=format:'%C(yellow)%h%C(reset) - %an [%C(green)%ar%C(reset)] %s'
   search = log -S
-  tree = log --graph --decorate --oneline --all
+  sla = log --graph --decorate --oneline --all
