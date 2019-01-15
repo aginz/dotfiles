@@ -14,8 +14,8 @@
   ds = diff --staged
   f = fetch -p
   p = push
-  pl = pull --ff-only
   po = push origin
+  pl = pull --ff-only
   r = reset
   uncommit = reset --soft HEAD^
   s = status
@@ -28,3 +28,9 @@
 
 [commit]
   template = ~/.gitmessage
+
+[fetch]
+  prune = true
+
+[push]
+  default = upstream
