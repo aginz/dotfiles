@@ -92,6 +92,10 @@ set incsearch                   " incremental searching
 set ignorecase                  " searches are case insensitive...
 set smartcase                   " ... unless they contain at least one capital letter
 
+" Faster search and replace in normal and visual mode
+nnoremap <leader>sub :%s///gc<left><left><left><left>
+vnoremap <leader>sub :s///gc<left><left><left><left>
+
 """"""""""""""""
 "FZF
 """"""""""""""""
@@ -219,6 +223,19 @@ nmap <Leader>hr <Plug>GitGutterUndoHunk
 """"""""""""""""
 "CONVENIENCE
 """"""""""""""""
+" Use C-Space to Esc out of any mode
+nnoremap <C-Space> <Esc>:noh<CR>
+vnoremap <C-Space> <Esc>gV
+onoremap <C-Space> <Esc>
+cnoremap <C-Space> <C-c>
+inoremap <C-Space> <Esc>
+" Terminal sees <C-@> as <C-space>
+nnoremap <C-@> <Esc>:noh<CR>
+vnoremap <C-@> <Esc>gV
+onoremap <C-@> <Esc>
+cnoremap <C-@> <C-c>
+inoremap <C-@> <Esc>
+
 " Q for Ex mode is useless. This will run the macro in q register
 nnoremap Q @q
 " Swap 0 and ^. Jump to the first non-whitespace character with 0 and go to
