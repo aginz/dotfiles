@@ -25,3 +25,6 @@
   l = log --pretty=format:'%C(yellow)%h%C(reset) - %an [%C(green)%ar%C(reset)] %s'
   search = log -S
   sla = log --graph --decorate --oneline --all
+
+[commit]
+  template = ~/.gitmessage
