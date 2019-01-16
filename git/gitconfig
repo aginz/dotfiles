@@ -24,6 +24,7 @@
   glog = log -E -i --grep
   l = log --pretty=format:'%C(yellow)%h%C(reset) - %an [%C(green)%ar%C(reset)] %s'
   search = log -S
+  sl = log --graph --decorate --oneline
   sla = log --graph --decorate --oneline --all
 
 [commit]
