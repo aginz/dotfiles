@@ -4,11 +4,13 @@
 
 [alias]
   a = add
+  aa = add --all
   ap = add --patch
   b = branch
   c = commit
+  cm = commit -m
   ca = commit --amend
-  car = commit --amend --no-edit
+  can = commit --amend --no-edit
   co = checkout
   d = diff
   ds = diff --staged
