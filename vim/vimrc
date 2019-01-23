@@ -206,6 +206,14 @@ nnoremap <Leader>rt :%s/\s\+$//e<CR>     " Clear trailing whitespace
 let g:vim_json_syntax_conceal = 0        " fixes a problem with indentLine that never lets you see quotes in json
 
 """"""""""""""""
+"FOLDING
+""""""""""""""""
+"Enable indent folding
+set foldenable
+set foldmethod=indent
+set foldlevel=999
+
+""""""""""""""""
 "Emmet
 """"""""""""""""
 " Enable just for html/css
