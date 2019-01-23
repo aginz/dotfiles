@@ -11,9 +11,6 @@ alias vi="vim"
 #TMUX Alias
 alias ta="tmux attach"
 
-#Git Alias
-alias g="git"
-
 #Bash Alias
 alias ls="ls -FGAlh"
 

@@ -101,6 +101,7 @@ if ! [ -d $DOTFILES ]; then
   ln -sf $DOTFILES/zsh/zshrc $HOME/.zshrc
   ln -sf $DOTFILES/zsh/async.zsh $HOME/.async.zsh
   ln -sf $DOTFILES/zsh/pure.zsh $HOME/.pure.zsh
+  mkdir -p $HOME/.zsh/functions && ln -sf $DOTFILES/zsh/functions $HOME/.zsh/
 
  tput setaf 2; echo '>> Dropbox installation complete!'
 else
