@@ -2,6 +2,9 @@
   name = 'Ashley Ginsberg'
   email = 'leonarad@gmail.com'
 
+[github]
+  user = aginz
+
 [alias]
   a = add
   aa = add --all
@@ -34,6 +37,9 @@
 
 [fetch]
   prune = true
+
+[merge]
+  ff = only
 
 [push]
   default = upstream
