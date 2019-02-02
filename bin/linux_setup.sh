@@ -12,33 +12,22 @@ DROPBOX="$HOME/Dropbox"
 
 tput setaf 3; echo '>> Installing packages'
 # Download all packages necessary for development
-sudo yum update && \
-sudo yum -y groupinstall "Development tools" && \
-sudo yum -y install \
-  autoconf \
-  automake \
+sudo apt update && \
+sudo apt install -y \
+  build-essential \
   curl \
-  git-all \
-  pcre-devel \
-  python \
-  rubygems \
+  dconf-cli \
+  git \
+  htop \
+  libssl-dev \
+  silversearcher-ag \
   tmux \
-  wget \
-  xz-devel \
-  zlib-devel \
+  vim \
+  xclip \
   zsh
 
 # Change login shell from bash to zsh
 sudo chsh -s $(which zsh) $(whoami)
-
-# Download silver searcher
-if ! [ -d "$SRC_DIRECTORY/the_silver_searcher" ]; then
-  cd $SRC_DIRECTORY
-  sudo git clone https://github.com/ggreer/the_silver_searcher.git
-  cd the_silver_searcher
-  sudo ./build.sh
-  sudo make install
-fi
 
 tput setaf 2; echo '>> Package installation complete!'
 
@@ -97,11 +86,12 @@ if ! [ -d $DOTFILES ]; then
   sudo ln -sf $DOTFILES/tmux/tat /usr/local/bin/tat && chmod +x $DOTFILES/tmux/tat
   ln -sf $DOTFILES/tmux/tmux.conf $HOME/.tmux.conf
   ln -sf $DOTFILES/vim/vimrc $HOME/.vimrc
-  ln -sf $DOTFILES/vim/colors $HOME/.vim/colors
+  ln -sf $DOTFILES/vim/colors $HOME/.vim
   ln -sf $DOTFILES/zsh/zshrc $HOME/.zshrc
+  ln -sf $DOTFILES/zsh/zshrc.home $HOME/.zshrc.home
   ln -sf $DOTFILES/zsh/async.zsh $HOME/.async.zsh
   ln -sf $DOTFILES/zsh/pure.zsh $HOME/.pure.zsh
-  mkdir -p $HOME/.zsh/functions && ln -sf $DOTFILES/zsh/functions $HOME/.zsh/
+  mkdir -p $HOME/.zsh && ln -sf $DOTFILES/zsh/functions $HOME/.zsh/
 
  tput setaf 2; echo '>> Dropbox installation complete!'
 else
@@ -118,5 +108,12 @@ tmux source ~/.tmux.conf
 # Download and install fzf
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install
+
+# Download and install nvm
+mkdir ~/.nvm && curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.34.0/install.sh | bash
+
+# Download and install solarized color theme for gnome terminal
+git clone https://github.com/Anthony25/gnome-terminal-colors-solarized.git ~/.vim/colors/gnome-terminal-colors-solarized
+~/.vim/colors/gnome-terminal-colors-solarized/install.sh
 
 tput setaf 2; echo '>> LINUX SETUP COMPLETE!'
