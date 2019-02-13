@@ -253,6 +253,11 @@ nnoremap ^ 0
 " Switch between the last two files
 nnoremap <leader><leader> <c-^>
 
+" change two vertically split windows to horizontally split
+nnoremap <leader>h <c-w>t <c-w>K
+" change two horizontally split windows to vertically split
+nnoremap <leader>v <c-w>t <c-w>H
+
 """"""""""""""""
 "MISC MAPPINGS
 """"""""""""""""
