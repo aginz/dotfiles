@@ -24,7 +24,7 @@
   r = reset
   uncommit = reset --soft HEAD^
   s = status
-  st = stash -u
+  st = stash
   conflicted = !vim +Conflicted
   glog = log -E -i --grep
   l = log --pretty=format:'%C(yellow)%h%C(reset) - %an [%C(green)%ar%C(reset)] %s'

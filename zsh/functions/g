@@ -8,5 +8,5 @@ g() {
   fi
 }
 
-# Alias g to git
-alias g="git"
+# Complete g like git
+compdef g=git
