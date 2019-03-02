@@ -213,6 +213,15 @@ set foldenable
 set foldmethod=indent
 set foldlevel=999
 
+"open/close a fold
+nnoremap <leader>ff za
+"open/close a fold recursively
+nnoremap <leader>FF zA
+
+"Maps for folding, unfolding all
+nnoremap <LEADER>fu zM<CR>
+nnoremap <LEADER>uf zR<CR>
+
 """"""""""""""""
 "Emmet
 """"""""""""""""
