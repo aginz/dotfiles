@@ -280,6 +280,34 @@ nnoremap <leader>h <c-w>t <c-w>K
 nnoremap <leader>v <c-w>t <c-w>H
 
 """"""""""""""""
+"PRETTIER CODE
+""""""""""""""""
+" Allow ale to fix js files on save
+let g:ale_fix_on_save = 1
+let g:ale_fixers = {
+      \   '*': ['remove_trailing_lines', 'trim_whitespace'],
+      \   'javascript': ['prettier', 'eslint'],
+      \   'typescript': ['prettier', 'eslint'],
+      \   'ruby': ['standardrb'],
+      \}
+" Limit linters used for JavaScript and Ruby.
+let g:ale_linters = {
+\  'javascript': ['flow', 'eslint'],
+\  'typescript': ['tsc', 'eslint'],
+\  'ruby': ['standardrb'],
+\}
+highlight clear ALEErrorSign " otherwise uses error bg color (typically red)
+highlight clear ALEWarningSign " otherwise uses error bg color (typically red)
+let g:ale_sign_error = 'X' " could use emoji
+let g:ale_sign_warning = '?' " could use emoji
+" %linter% is the name of the linter that provided the message
+" %s is the error or warning message
+let g:ale_echo_msg_format = '%linter% says %s'
+" Map keys to navigate between lines with errors and warnings.
+nnoremap <leader>an :ALENextWrap<cr>
+nnoremap <leader>ap :ALEPreviousWrap<cr>
+
+""""""""""""""""
 "MISC MAPPINGS
 """"""""""""""""
 " Map jk to escape
@@ -344,27 +372,6 @@ let g:mta_filetypes = {
   \}
 " Trigger for snippet configuration
 let g:UltiSnipsExpandTrigger="<c-k>"
-
-" Allow ale to fix js files on save
-let g:ale_fix_on_save = 1
-let g:ale_fixers = {
-      \   '*': ['remove_trailing_lines', 'trim_whitespace'],
-      \   'javascript': ['prettier', 'eslint'],
-      \}
-" Limit linters used for JavaScript.
-let g:ale_linters = {
-\  'javascript': ['flow', 'eslint']
-\}
-highlight clear ALEErrorSign " otherwise uses error bg color (typically red)
-highlight clear ALEWarningSign " otherwise uses error bg color (typically red)
-let g:ale_sign_error = 'X' " could use emoji
-let g:ale_sign_warning = '?' " could use emoji
-" %linter% is the name of the linter that provided the message
-" %s is the error or warning message
-let g:ale_echo_msg_format = '%linter% says %s'
-" Map keys to navigate between lines with errors and warnings.
-nnoremap <leader>an :ALENextWrap<cr>
-nnoremap <leader>ap :ALEPreviousWrap<cr>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "JS End
