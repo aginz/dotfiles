@@ -44,9 +44,10 @@ Plugin 'epilande/vim-react-snippets'
 Plugin 'SirVer/ultisnips'
 Plugin 'w0rp/ale'
 Plugin 'moll/vim-node'
-" Plugin 'tpope/vim-projectionist'
-" Plugin 'prettier/prettier'
-" Plugin 'neomake/neomake'
+
+" Typescript
+Plugin 'leafgarland/typescript-vim'
+Plugin 'Quramy/tsuquyomi'
 
 call vundle#end()            " Required by Vundle
 filetype plugin indent on    " Required by Vundle
