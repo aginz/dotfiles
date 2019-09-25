@@ -47,7 +47,7 @@ Plugin 'moll/vim-node'
 
 " Typescript
 Plugin 'leafgarland/typescript-vim'
-Plugin 'Quramy/tsuquyomi'
+Plugin 'peitalin/vim-jsx-typescript'
 
 call vundle#end()            " Required by Vundle
 filetype plugin indent on    " Required by Vundle
