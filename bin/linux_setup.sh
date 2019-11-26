@@ -98,9 +98,6 @@ else
  tput setaf 1; echo '>> Dotfiles was already setup.'
 fi
 
-# Enter zsh shell
-zsh
-
 # Download tmux plugin manager
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 tmux source ~/.tmux.conf
@@ -115,5 +112,8 @@ mkdir ~/.nvm && curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.34.
 # Download and install solarized color theme for gnome terminal
 git clone https://github.com/Anthony25/gnome-terminal-colors-solarized.git ~/.vim/colors/gnome-terminal-colors-solarized
 ~/.vim/colors/gnome-terminal-colors-solarized/install.sh
+
+# Enter zsh shell
+zsh
 
 tput setaf 2; echo '>> LINUX SETUP COMPLETE!'

@@ -1,2 +1,2 @@
 # For solarized theme on Ubuntu Gnome Terminal
-eval `dircolors $HOME/.dir_colors/dircolors`
+eval `dircolors $HOME/dircolors`
