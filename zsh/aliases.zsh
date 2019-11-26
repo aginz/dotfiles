@@ -15,5 +15,8 @@ alias ta="tmux attach"
 alias ls="ls -FGAlh"
 
 # Set Navigation Aliases
-alias gocode="cd $HOME/code"
+alias code="cd $HOME/code"
 alias dot="cd $HOME/.dotfiles"
+
+# Convenience
+alias Ag='ag'

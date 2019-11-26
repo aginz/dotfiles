@@ -12,15 +12,12 @@ DROPBOX="$HOME/Dropbox"
 
 tput setaf 3; echo '>> Installing packages'
 # Download all packages necessary for development
-sudo apt update && \
-sudo apt install -y \
-  build-essential \
+sudo pacman -Syu && \
+sudo pacman -S \
   curl \
-  dconf-cli \
   git \
   htop \
-  libssl-dev \
-  silversearcher-ag \
+  the_silver_searcher \
   tmux \
   vim \
   xclip \
