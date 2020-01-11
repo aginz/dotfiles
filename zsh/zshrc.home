@@ -1,4 +1,1 @@
-# For solarized theme on Ubuntu Gnome Terminal
-eval `dircolors $HOME/dircolors`
-
 alias code="cd $HOME/code"

@@ -23,39 +23,15 @@ sudo pacman -S \
   xclip \
   zsh
 
-# Change login shell from bash to zsh
-sudo chsh -s $(which zsh) $(whoami)
-
 tput setaf 2; echo '>> Package installation complete!'
 
 tput setaf 3; echo '>> Setup Dropbox'
-# Source: http://www.dropboxwiki.com/tips-and-tricks/install-dropbox-centos-gui-required
 if ! [ -d $DROPBOX ]; then
-  # Download Dropbox for 64-bit CentOS system
-  cd ~ && wget -O - "https://www.dropbox.com/download?plat=lnx.x86_64" | tar xzf -
-
-  # Run the dropboxd application
-  ~/.dropbox-dist/dropboxd
-
-  # Download Dropbox CLI interface
-  mkdir -p ~/bin && wget -O ~/bin/dropbox.py "https://www.dropbox.com/download?dl=packages/dropbox.py" && chmod +x ~/bin/dropbox.py
-
-  # Turn on Dropbox
-  ~/bin/dropbox.py start
-
-  # prevent lan broadcasting
-  ~/bin/dropbox.py lansync n
-
-  # Exclude everything in dropbox, then whitelist certain folders/files
-  cd ~/Dropbox && ~/bin/dropbox.py exclude add * && \
-    ~/bin/dropbox.py exclude remove my-wiki setup todo.md
-
-  # Turn off Dropbox sync
-  ~/bin/dropbox.py stop
+  # Get dropbox from arch repo - https://aur.archlinux.org/packages/dropbox/
+  git clone https://aur.archlinux.org/dropbox.git ~/Downloads && cd ~/Downloads/dropbox && makepkg -si
 
   # Setup Dropbox symlinks
   ln -sf $DROPBOX/my-wiki $HOME/my-wiki
-  ln -sf $DROPBOX/setup/bash_profile.work $HOME/.bash_profile.work
   ln -sf $DROPBOX/todo.md $HOME/todo.md
 
   tput setaf 2; echo '>> Dropbox installation complete!'
@@ -90,7 +66,7 @@ if ! [ -d $DOTFILES ]; then
   ln -sf $DOTFILES/zsh/pure.zsh $HOME/.pure.zsh
   mkdir -p $HOME/.zsh && ln -sf $DOTFILES/zsh/functions $HOME/.zsh/
 
- tput setaf 2; echo '>> Dropbox installation complete!'
+ tput setaf 2; echo '>> Dotfiles installation complete!'
 else
  tput setaf 1; echo '>> Dotfiles was already setup.'
 fi
@@ -106,9 +82,12 @@ git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 # Download and install nvm
 mkdir ~/.nvm && curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.34.0/install.sh | bash
 
-# Download and install solarized color theme for gnome terminal
-git clone https://github.com/Anthony25/gnome-terminal-colors-solarized.git ~/.vim/colors/gnome-terminal-colors-solarized
-~/.vim/colors/gnome-terminal-colors-solarized/install.sh
+# Download solarized dark theme for terminal
+# Arch Repo: https://aur.archlinux.org/packages/solarized-dark-themes/
+git clone https://aur.archlinux.org/solarized-dark-themes.git ~/Downloads && cd ~/Downloads/solarized-dark-themes && makepkg -si
+
+# Change login shell from bash to zsh
+sudo chsh -s $(which zsh) $(whoami)
 
 # Enter zsh shell
 zsh
