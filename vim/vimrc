@@ -41,7 +41,6 @@ Plugin 'mxw/vim-jsx'
 Plugin 'valloric/MatchTagAlways'
 Plugin 'epilande/vim-es2015-snippets'
 Plugin 'epilande/vim-react-snippets'
-Plugin 'SirVer/ultisnips'
 Plugin 'w0rp/ale'
 Plugin 'moll/vim-node'
 
@@ -371,8 +370,6 @@ let g:javascript_plugin_flow = 1
 let g:mta_filetypes = {
   \ 'javascript.jsx' : 1,
   \}
-" Trigger for snippet configuration
-let g:UltiSnipsExpandTrigger="<c-k>"
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "JS End
