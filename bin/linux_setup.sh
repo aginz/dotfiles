@@ -83,8 +83,8 @@ git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 mkdir ~/.nvm && curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.34.0/install.sh | bash
 
 # Download solarized dark theme for terminal
-# Arch Repo: https://aur.archlinux.org/packages/solarized-dark-themes/
-git clone https://aur.archlinux.org/solarized-dark-themes.git ~/Downloads && cd ~/Downloads/solarized-dark-themes && makepkg -si
+# Arch Repo: https://aur.archlinux.org/packages/st-solarized-dark/
+git clone https://aur.archlinux.org/packages/st-solarized-dark/ ~/Downloads && cd ~/Downloads/solarized-dark-themes && makepkg -si
 
 # Change login shell from bash to zsh
 sudo chsh -s $(which zsh) $(whoami)
